@@ -70,5 +70,28 @@
 
   <a class="btn" href="#">Save Settings</a>
 </div>
+<script>
+document.querySelector('.btn:last-of-type').addEventListener('click', function(e){
+  e.preventDefault();
+
+  const inputs = document.querySelectorAll('#setup input');
+
+  const settings = {
+    employeeName: inputs[0].value,
+    managerEmailPattern: inputs[1].value,
+    reviewEmail: inputs[2].value,
+    ptoRecipientEmail: inputs[3].value,
+    workCalendarId: inputs[4].value,
+    appointmentCalendarId: inputs[5].value
+  };
+
+  localStorage.setItem(
+    'sashaSettings',
+    JSON.stringify(settings)
+  );
+
+  alert('Settings saved successfully.');
+});
+</script>
 </body>
 </html>
